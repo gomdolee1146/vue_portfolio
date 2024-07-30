@@ -1,0 +1,54 @@
+:root {
+  --mainEng-font: "Montserrat";
+  --mainKor-font: "nanumSquareNeo";
+  --mainNum-font: "gmarket";
+
+  --mainBg-color: #efecf5; //#f3ede8 #c3b8d9;
+  --subBg100: #c4bcd2; //#cdc0b1
+  --subBg200: #7883bf; //#afa395
+  --subBg300: #d4ccdf; //#81887c
+  --subBg400: #6966c3; //#afa7a2
+  --subBg500: #394d73; //#a6afa2
+
+  --white: #fff;
+  --black: #000;
+  --black100: #2b2b2b;
+  --black200: #434343;
+  --black300: #686868;
+  --black400: #e0e0e0;
+
+  font-family: var(--mainEng-font), var(--mainKor-font);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  @media (max-width: 800px) {
+      font-size: 14px;
+      line-height: 1.4;
+  }
+}
+
+body {
+  background-color: var(--mainBg-color);
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  transition: background-color 0.5s;
+}
+
+.section-home { background-color: #ff6b6b; }
+.section-profile { background-color: #ff9f43; }
+.section-portfolio { background-color: #feca57; }
+.section-career { background-color: #48dbfb; }
+.section-contact { background-color: #1dd1a1; }
