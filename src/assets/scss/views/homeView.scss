@@ -1,0 +1,29 @@
+.section-home,
+.section-profile,
+.section-career,
+.section-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2em;
+  transition: background-color 0.5s;
+}
+.section-home {
+  background-color: var(--subBg100);
+}
+.section-profile {
+  background-color: var(--subBg200);
+  color: var(--black400);
+}
+.section-portfolio {
+  background-color: var(--subBg300);
+}
+.section-career {
+  background-color: var(--subBg400);
+  color: var(--black400);
+}
+.section-contact {
+  background-color: var(--subBg500);
+  color: var(--black400);
+}

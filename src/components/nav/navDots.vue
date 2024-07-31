@@ -2,28 +2,10 @@
   <div class="nav__wrap-dots">
     <span
       class="nav__dots"
-      :class="{ active: activeSection === 'home' }"
-      @click="scrollToSection('home')"
-    ></span>
-    <span
-      class="nav__dots"
-      :class="{ active: activeSection === 'profile' }"
-      @click="scrollToSection('profile')"
-    ></span>
-    <span
-      class="nav__dots"
-      :class="{ active: activeSection === 'portfolio' }"
-      @click="scrollToSection('portfolio')"
-    ></span>
-    <span
-      class="nav__dots"
-      :class="{ active: activeSection === 'career' }"
-      @click="scrollToSection('career')"
-    ></span>
-    <span
-      class="nav__dots"
-      :class="{ active: activeSection === 'contact' }"
-      @click="scrollToSection('contact')"
+      :class="{ active: activeSection === menu }"
+      v-for="menu in menus"
+      :key="menu"
+      @click="scrollToSection(menu)"
     ></span>
   </div>
 </template>
@@ -31,6 +13,11 @@
 <script>
 export default {
   props: ['activeSection'],
+  data() {
+    return {
+      menus: ['home', 'profile', 'portfolio', 'career', 'contact'],
+    };
+  },
   methods: {
     scrollToSection(sectionId) {
       document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });

@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <nav-header :activeSection="activeSection" />
-    <section class="section-home" ref="homeSection">
-        <home-content />
+    <section class="section-home" id="home" ref="homeSection">
+      <home-content />
     </section>
-    <section class="section-profile" ref="profileSection">
-        <profile-content />
+    <section class="section-profile" id="profile" ref="profileSection">
+      <profile-content />
     </section>
-    <section class="section-portfolio" ref="portfolioSection">
-        <portfolio-content />
+    <section class="section-portfolio" id="portfolio" ref="portfolioSection">
+      <portfolio-content />
     </section>
-    <section class="section-career" ref="careerSection">
-        <career-content />
+    <section class="section-career" id="career" ref="careerSection">
+      <career-content />
     </section>
-    <section class="section-contact" ref="contactSection">
-        <career-content />
+    <section class="section-contact" id="contact" ref="contactSection">
+      <contact-content />
     </section>
     <nav-dots :activeSection="activeSection" />
   </div>
@@ -27,9 +27,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import NavHeader from '@/components/nav/navHeader.vue';
 import NavDots from '@/components/nav/navDots.vue';
 import HomeContent from '@/components/content/homeContent.vue';
-import ProfileContent from '../components/content/profileContent.vue';
-import CareerContent from '../components/content/careerContent.vue';
-import PortfolioContent from '../components/content/portfolioContent.vue';
+import ProfileContent from '@/components/content/profileContent.vue';
+import CareerContent from '@/components/content/careerContent.vue';
+import PortfolioContent from '@/components/content/portfolioContent.vue';
+import ContactContent from '@/components/content/contactContent.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,6 +42,7 @@ export default {
     ProfileContent,
     PortfolioContent,
     CareerContent,
+    ContactContent,
   },
   name: 'App',
   setup() {
@@ -60,20 +62,27 @@ export default {
         { id: 'contact', ref: contactSection },
       ];
 
-      sections.forEach((section) => {
-        gsap.from(section.ref.value, {
-          scrollTrigger: {
-            trigger: section.ref.value,
-            start: 'top center',
-            toggleActions: 'play none none none',
-            onEnter: () => (activeSection.value = section.id),
-            onEnterBack: () => (activeSection.value = section.id),
-          },
-          opacity: 0,
-          duration: 1,
-          y: 100,
+      const updateActiveSection = () => {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        sections.forEach((section) => {
+          const element = section.ref.value;
+          if (element !== 'portfolioSection') {
+            if (
+              element.offsetTop <= scrollPosition &&
+              element.offsetTop + element.clientHeight > scrollPosition
+            ) {
+              activeSection.value = section.id;
+            }
+          }
         });
-      });
+      };
+
+      window.addEventListener('scroll', updateActiveSection);
+      updateActiveSection();
+
+      return () => {
+        window.removeEventListener('scroll', updateActiveSection);
+      };
     });
 
     return {
@@ -87,3 +96,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/scss/views/homeView.scss';
+</style>

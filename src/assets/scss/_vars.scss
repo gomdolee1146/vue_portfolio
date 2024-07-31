@@ -37,18 +37,3 @@
 body {
   background-color: var(--mainBg-color);
 }
-
-section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  transition: background-color 0.5s;
-}
-
-.section-home { background-color: #ff6b6b; }
-.section-profile { background-color: #ff9f43; }
-.section-portfolio { background-color: #feca57; }
-.section-career { background-color: #48dbfb; }
-.section-contact { background-color: #1dd1a1; }

@@ -2,32 +2,13 @@
   <header class="header">
     <div class="header__title">타이틀</div>
     <nav class="header__nav">
-      <a class="header__menu" href="#home" :class="{ active: activeSection === 'home' }"
-        >Home</a
-      >
       <a
         class="header__menu"
-        href="#profile"
-        :class="{ active: activeSection === 'profile' }"
-        >Profile</a
-      >
-      <a
-        class="header__menu"
-        href="#portfolio"
-        :class="{ active: activeSection === 'portfolio' }"
-        >Portfolio</a
-      >
-      <a
-        class="header__menu"
-        href="#career"
-        :class="{ active: activeSection === 'career' }"
-        >Career</a
-      >
-      <a
-        class="header__menu"
-        href="#contact"
-        :class="{ active: activeSection === 'contact' }"
-        >Contact</a
+        @click="navigateTo(menu)"
+        v-for="menu in menus"
+        :key="menu"
+        :class="{ active: activeSection === menu }"
+        >{{ menu }}</a
       >
     </nav>
   </header>
@@ -35,7 +16,18 @@
 
 <script>
 export default {
+  name: 'navHeader',
   props: ['activeSection'],
+  data() {
+    return {
+      menus: ['home', 'profile', 'portfolio', 'career', 'contact'],
+    };
+  },
+  methods: {
+    navigateTo(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    },
+  },
 };
 </script>
 <style>
@@ -48,7 +40,7 @@ export default {
   width: 100%;
   height: 60px;
   padding: 0 24px;
-  background: #333;
+  background: #15202f;
   color: #fff;
   z-index: 1000;
 }
