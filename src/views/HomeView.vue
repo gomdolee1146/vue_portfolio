@@ -4,8 +4,8 @@
     <section class="section-home" id="home" ref="homeSection">
       <home-content />
     </section>
-    <section class="section-profile" id="profile" ref="profileSection">
-      <profile-content />
+    <section class="section-skills" id="skills" ref="skillsSection">
+      <skills-content />
     </section>
     <section class="section-portfolio" id="portfolio" ref="portfolioSection">
       <portfolio-content />
@@ -24,10 +24,11 @@
 import { onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import NavHeader from '@/components/nav/navHeader.vue';
 import NavDots from '@/components/nav/navDots.vue';
 import HomeContent from '@/components/content/homeContent.vue';
-import ProfileContent from '@/components/content/profileContent.vue';
+import SkillsContent from '@/components/content/skillsContent.vue';
 import CareerContent from '@/components/content/careerContent.vue';
 import PortfolioContent from '@/components/content/portfolioContent.vue';
 import ContactContent from '@/components/content/contactContent.vue';
@@ -39,15 +40,15 @@ export default {
     NavHeader,
     NavDots,
     HomeContent,
-    ProfileContent,
+    SkillsContent,
     PortfolioContent,
     CareerContent,
     ContactContent,
   },
-  name: 'App',
+  name: 'HomeView',
   setup() {
     const homeSection = ref(null);
-    const profileSection = ref(null);
+    const skillsSection = ref(null);
     const portfolioSection = ref(null);
     const careerSection = ref(null);
     const contactSection = ref(null);
@@ -56,7 +57,7 @@ export default {
     onMounted(() => {
       const sections = [
         { id: 'home', ref: homeSection },
-        { id: 'profile', ref: profileSection },
+        { id: 'skills', ref: skillsSection },
         { id: 'portfolio', ref: portfolioSection },
         { id: 'career', ref: careerSection },
         { id: 'contact', ref: contactSection },
@@ -87,7 +88,7 @@ export default {
 
     return {
       homeSection,
-      profileSection,
+      skillsSection,
       portfolioSection,
       careerSection,
       contactSection,

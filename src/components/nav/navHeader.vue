@@ -1,3 +1,7 @@
+<script setup>
+import { navigateContent } from '@/data/index';
+</script>
+
 <template>
   <header class="header">
     <div class="header__title">타이틀</div>
@@ -5,11 +9,12 @@
       <a
         class="header__menu"
         @click="navigateTo(menu)"
-        v-for="menu in menus"
+        v-for="menu in navigateContent"
         :key="menu"
         :class="{ active: activeSection === menu }"
-        >{{ menu }}</a
       >
+        {{ menu }}
+      </a>
     </nav>
   </header>
 </template>
@@ -17,11 +22,8 @@
 <script>
 export default {
   name: 'navHeader',
-  props: ['activeSection'],
-  data() {
-    return {
-      menus: ['home', 'profile', 'portfolio', 'career', 'contact'],
-    };
+  props: {
+    activeSection: { type: String, default: 'home' },
   },
   methods: {
     navigateTo(sectionId) {
@@ -51,9 +53,8 @@ export default {
 }
 
 .header__menu {
-  color: #fff;
-  text-decoration: none;
   padding: 10px;
+  color: #fff;
   cursor: pointer;
 }
 

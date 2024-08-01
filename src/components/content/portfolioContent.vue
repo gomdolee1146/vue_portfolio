@@ -42,37 +42,6 @@ export default {
 
 };
 </script>
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  display: flex;
-  overflow: hidden;
-  width: 500vw; /* 5개의 박스이므로 각 100vw */
-}
-
-.box {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  background-color: #eee;
-  border: 1px solid #ccc;
-}
-
-.footer {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  background-color: #333;
-  color: white;
-  opacity: 0;
-}
+<style lang="scss" scoped>
+@import '@/assets/scss/components/portfolioContent.scss';
 </style>

@@ -1,5 +1,5 @@
 .section-home,
-.section-profile,
+.section-skills,
 .section-career,
 .section-contact {
   display: flex;
@@ -12,7 +12,7 @@
 .section-home {
   background-color: var(--subBg100);
 }
-.section-profile {
+.section-skills {
   background-color: var(--subBg200);
   color: var(--black400);
 }
