@@ -45,6 +45,7 @@ export default {
   background: #15202f;
   color: #fff;
   z-index: 1000;
+  text-transform: capitalize;
 }
 
 .header__nav {

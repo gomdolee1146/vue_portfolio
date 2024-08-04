@@ -27,11 +27,11 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss" scoped>
 .nav__wrap-dots {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   position: fixed;
   top: 50%;
   right: 20px;
@@ -40,14 +40,33 @@ export default {
 
 .nav__dots {
   display: block;
-  width: 10px;
-  height: 10px;
+  position: relative;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: #ccc;
+  background: #d4ccdf;
+  transition: all .2s ease;
   cursor: pointer;
 }
 
 .nav__dots.active {
-  background: #333;
+  width: 10px;
+  height: 10px;
+  margin: 3px 0 0 3px;
+  background: #16102f;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #16102f;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+  }
 }
 </style>

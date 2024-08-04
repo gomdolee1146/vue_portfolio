@@ -13,8 +13,8 @@
     <section class="section-career" id="career" ref="careerSection">
       <career-content />
     </section>
-    <section class="section-contact" id="contact" ref="contactSection">
-      <contact-content />
+    <section class="section-profile" id="profile" ref="profileSection">
+      <profile-content />
     </section>
     <nav-dots :activeSection="activeSection" />
   </div>
@@ -31,7 +31,7 @@ import HomeContent from '@/components/content/homeContent.vue';
 import SkillsContent from '@/components/content/skillsContent.vue';
 import CareerContent from '@/components/content/careerContent.vue';
 import PortfolioContent from '@/components/content/portfolioContent.vue';
-import ContactContent from '@/components/content/contactContent.vue';
+import ProfileContent from '@/components/content/profileContent.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,7 +43,7 @@ export default {
     SkillsContent,
     PortfolioContent,
     CareerContent,
-    ContactContent,
+    ProfileContent,
   },
   name: 'HomeView',
   setup() {
@@ -51,7 +51,7 @@ export default {
     const skillsSection = ref(null);
     const portfolioSection = ref(null);
     const careerSection = ref(null);
-    const contactSection = ref(null);
+    const profileSection = ref(null);
     const activeSection = ref('homeSection');
 
     onMounted(() => {
@@ -60,7 +60,7 @@ export default {
         { id: 'skills', ref: skillsSection },
         { id: 'portfolio', ref: portfolioSection },
         { id: 'career', ref: careerSection },
-        { id: 'contact', ref: contactSection },
+        { id: 'profile', ref: profileSection },
       ];
 
       const updateActiveSection = () => {
@@ -91,7 +91,7 @@ export default {
       skillsSection,
       portfolioSection,
       careerSection,
-      contactSection,
+      profileSection,
       activeSection,
     };
   },

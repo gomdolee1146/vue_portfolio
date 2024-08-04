@@ -1,28 +1,83 @@
-
-.container {
-  display: flex;
-  width: 500vw; 
-  overflow: hidden;
-}
-
-.box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.portfolio {
+  position: relative;
   width: 100vw;
-  height: 100vh;
-  border: 1px solid #ccc;
-  background-color: #eee;
-  font-size: 2rem;
+  overflow: hidden;
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 0;
+    width: 100%;
+    font-size: 2em;
+    font-weight: 700;
+    z-index: 10;
+  }
+
+  &__wrap {
+    display: flex;
+    position: relative;
+    width: 300vw;
+    height: 100vh;
+    padding-top: 60px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 60px;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+  }
+  &__thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2em;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+  &__box:hover .portfolio__content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #333;
-  color: white;
-  font-size: 2rem;
-  opacity: 0;
+@media (max-width: 768px) {
+  .portfolio__box {
+    width: 100%;
+  }
+
+  .portfolio__content {
+    position: static;
+    opacity: 1;
+    transform: translateY(0);
+    background: transparent;
+    pointer-events: auto; /* Enables interaction with content */
+  }
 }

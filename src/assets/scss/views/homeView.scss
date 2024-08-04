@@ -1,7 +1,7 @@
 .section-home,
 .section-skills,
 .section-career,
-.section-contact {
+.section-profile {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,9 @@
   background-color: var(--subBg400);
   color: var(--black400);
 }
-.section-contact {
+.section-profile {
+  min-height: 100vh;
+  height: auto;
   background-color: var(--subBg500);
   color: var(--black400);
 }
