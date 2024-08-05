@@ -45,7 +45,14 @@
     font-size: 16px;
   }
 
-  &__career_box{
-    margin-bottom: 12px;
+  &__career {
+    &_box {
+      margin-bottom: 12px;
+    }
+    &_txt{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
 }

@@ -12,12 +12,14 @@ import { careerList } from '@/data/index';
         <div class="profile__thumb"></div>
       </div>
       <div class="profile__right">
+        <div class="profile__box"></div>
+
         <div class="profile__career">
           <div class="profile__career_box" v-for="career in careerList" :key="career">
             <p>{{ career.companyName }}<strong>({{ career.status }})</strong> <em> date</em></p>
-            <div class="profile_desc">
-              <strong>주요업무 :</strong>
-              <p></p>
+            <div class="profile__desc">
+              <b>주요 업무: </b>
+              <p class="profile__career_txt" v-for="work in career.work" :key="work"><i></i>{{ work }}</p>
             </div>
           </div>
         </div>

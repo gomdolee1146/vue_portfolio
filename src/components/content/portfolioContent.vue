@@ -6,7 +6,20 @@
         <div class="portfolio__thumb">
           <img :src="imgRoute(box.thumb)" />
         </div>
-        <div class="portfolio__content">box {{ box.title }}</div>
+        <div class="portfolio__content">
+          <h2>- {{ box.title }}-</h2>  
+          <p>{{ box.desc }}</p>
+          <p>사용 언어: 
+            <span class="portfolio__badge" :class="`portfolio__badge-${skills}`" v-for="skills in box.skills" :key="skills">
+              {{ skills }}
+            </span>
+          </p>
+          <p>작업기간 : {{ box.period }}</p>
+          <div class="portfolio__content_box">
+            <button class="portfolio__button">GITHUB</button>
+            <button class="portfolio__button">DEMO</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -59,6 +72,11 @@ export default {
       boxes,
     };
   },
+  methods:{
+    goToLink(link){
+      window.open(link) 
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
