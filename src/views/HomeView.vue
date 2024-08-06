@@ -18,6 +18,7 @@
     </section>
     <nav-dots :activeSection="activeSection" />
   </div>
+  <go-to-top />
 </template>
 
 <script>
@@ -27,6 +28,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import NavHeader from '@/components/nav/navHeader.vue';
 import NavDots from '@/components/nav/navDots.vue';
+import GoToTop from '@/components/nav/goToTop.vue';
 import HomeContent from '@/components/content/homeContent.vue';
 import SkillsContent from '@/components/content/skillsContent.vue';
 import CareerContent from '@/components/content/careerContent.vue';
@@ -39,6 +41,7 @@ export default {
   components: {
     NavHeader,
     NavDots,
+    GoToTop,
     HomeContent,
     SkillsContent,
     PortfolioContent,

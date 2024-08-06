@@ -105,8 +105,11 @@
     height: 22px;
     line-height: 22px;
     padding: 0 8px;
+    margin-right: 4px;
     border-radius: 12px;
-
+    &-last-child {
+      margin-right: 0;
+    }
     &-vue,
     &-nuxt {
       background: #3fb27f;

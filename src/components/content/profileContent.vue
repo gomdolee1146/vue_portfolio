@@ -16,7 +16,7 @@ import { careerList } from '@/data/index';
 
         <div class="profile__career">
           <div class="profile__career_box" v-for="career in careerList" :key="career">
-            <p>{{ career.companyName }}<strong>({{ career.status }})</strong> <em> date</em></p>
+            <p class="profile__career_name">{{ career.companyName }}<b>({{ career.status }})</b> <em> date: {{ career.employingDate }}</em></p>
             <div class="profile__desc">
               <b>주요 업무: </b>
               <p class="profile__career_txt" v-for="work in career.work" :key="work"><i></i>{{ work }}</p>

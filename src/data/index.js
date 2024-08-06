@@ -101,10 +101,4 @@ export const careerList = [
       '웹 프로그램 설명 카탈로그 제작 등',
     ],
   },
-  {
-    companyName: '',
-    status: '',
-    employingDate: '',
-    work: '',
-  },
 ];

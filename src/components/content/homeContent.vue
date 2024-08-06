@@ -1,9 +1,8 @@
 <template>
   <div class="home__wrap">
     <div class="home__content">
-      <!-- TODO : 컨텐츠 추가 하기 -->
-       <!-- <div>HELLO :)</div> -->
-       <!-- <div>Title !!</div> -->
+          <p>HELLO :) <br /> This is My Portfolio!</p>
+       
     </div>
     <div class="home__bg" ref="stars">
       <div v-for="n in 5" :key="'star' + n" class="shining-star"></div>
