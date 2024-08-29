@@ -23,9 +23,7 @@ export default {
       if (this.index < this.text.length) {
         this.displayedText += this.text.charAt(this.index);
         this.index++;
-        this.$nextTick(() => {
-          this.typeContent;
-        }, this.typingSpeed);
+        setTimeout(this.typeContent, this.typingSpeed);
       }
     },
   },
@@ -41,10 +39,13 @@ export default {
   align-items: center;
   font-size: 24px;
 }
-
+.typing__text {
+  color: #fff;
+}
 .typing__cursor {
   margin-left: 2px;
   animation: blink 0.7s step-end infinite;
+  color: #fff;
 }
 
 @keyframes blink {

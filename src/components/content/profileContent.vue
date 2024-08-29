@@ -9,7 +9,9 @@ import { careerList } from '@/data/index';
     </div>
     <div class="profile__wrap">
       <div class="profile__left">
-        <div class="profile__thumb"></div>
+        <div class="profile__thumb">
+          <img src="/src/assets/img/profile.png" />
+        </div>
       </div>
       <div class="profile__right">
         <div class="profile__box"></div>

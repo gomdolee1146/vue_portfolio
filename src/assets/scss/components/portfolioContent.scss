@@ -8,7 +8,7 @@
     align-items: center;
     padding: 40px 0 0;
     width: 100%;
-    font-size: 2em;
+    font-size: 40px;
     font-weight: 700;
     z-index: 10;
   }
@@ -38,11 +38,13 @@
     width: 100%;
     height: 100%;
     font-size: 1.2em;
+    aspect-ratio: 1/1;
     img {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
+      aspect-ratio: 1/1;
     }
   }
   &__content {
@@ -55,9 +57,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 36px 40px;
+    padding: 36px 56px;
     background: rgba(0, 0, 0, 0.6);
-    color: #fff;
+    color: var(--black400);
     opacity: 0;
     transform: translateY(100%);
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -67,7 +69,7 @@
       margin-bottom: 12px;
       font-size: 20px;
       font-weight: 700;
-      color: #fff;
+      color: var(--black400);
     }
     p {
       line-height: 1.4;
@@ -86,11 +88,14 @@
         height: 40px;
         line-height: 40px;
         border-radius: 8px;
-        background: var(--subBg500);
+        background: var(--subBg100);
         font-size: 15px;
         font-weight: 700;
-        color: #fff;
+        color: var(--txt200);
         text-align: center;
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
   }
@@ -134,16 +139,32 @@
   }
 }
 
-@media (max-width: 768px) {
-  .portfolio__box {
-    width: 100%;
+@media (max-width: 600px) {
+  .portfolio__wrap {
+    flex-direction: column;
+    width: 100vw;
+    height: inherit;
   }
-
+  .portfolio__box {
+    flex-direction: column;
+    width: 100%;
+    height: inherit;
+    padding: 0;
+    margin-bottom: 60px;
+    background: #eeebf2;
+  }
+  
   .portfolio__content {
     position: static;
+    padding-bottom: 36px;
+    background: transparent;
+    color: var(--txt200);
     opacity: 1;
     transform: translateY(0);
-    background: transparent;
-    pointer-events: auto; /* Enables interaction with content */
+    pointer-events: auto; 
+
+    h2 {
+      color: var(--txt100);
+    }
   }
 }

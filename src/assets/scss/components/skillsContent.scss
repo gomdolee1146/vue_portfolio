@@ -8,7 +8,7 @@
   margin-bottom: 20px;
   font-size: 1.6em;
   font-weight: 700;
-  color: var(--mainBg-color);
+  color: var(--txt200);
   text-align: center;
 }
 
@@ -45,5 +45,11 @@
   &__bar {
     height: 100%;
     background: var(--subBg200);
+  }
+}
+
+@media screen and (max-width:600px){
+  .skills__wrap {
+    padding: 32px;
   }
 }

@@ -48,9 +48,9 @@ export default {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #484692;
+  background: #1d1c33;
   color: white;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
   box-sizing: border-box;
   cursor: pointer;
   z-index: 10;
@@ -68,7 +68,14 @@ export default {
     box-sizing: border-box;
   }
   &:hover {
-    background: #57549c;
+    background: #2c2b5b;
+  }
+}
+
+
+@media screen and (max-width:600px){
+  .top-button {
+    right: 24px;
   }
 }
 </style>

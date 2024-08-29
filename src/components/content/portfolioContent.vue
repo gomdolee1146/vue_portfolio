@@ -7,17 +7,25 @@
           <img :src="imgRoute(box.thumb)" />
         </div>
         <div class="portfolio__content">
-          <h2>- {{ box.title }}-</h2>  
+          <h2>- {{ box.title }}-</h2>
           <p>{{ box.desc }}</p>
-          <p>사용 언어: 
-            <span class="portfolio__badge" :class="`portfolio__badge-${skills}`" v-for="skills in box.skills" :key="skills">
+          <p>
+            사용 언어:
+            <span
+              class="portfolio__badge"
+              :class="`portfolio__badge-${skills}`"
+              v-for="skills in box.skills"
+              :key="skills"
+            >
               {{ skills }}
             </span>
           </p>
           <p>작업기간 : {{ box.period }}</p>
           <div class="portfolio__content_box">
-            <button class="portfolio__button">GITHUB</button>
-            <button class="portfolio__button">DEMO</button>
+            <button class="portfolio__button" v-if="box.code" @click="goToLink(box.code)">
+              GITHUB
+            </button>
+            <button class="portfolio__button" @click="goToLink(box.view)">DEMO</button>
           </div>
         </div>
       </div>
@@ -41,42 +49,56 @@ export default {
     };
   },
   setup() {
-    function imgRoute(imgName){
+    function imgRoute(imgName) {
       return new URL(`/src/assets/img/${imgName}`, import.meta.url).href;
-    };
+    }
 
     const container = ref(null);
-    const boxes = [1, 2, 3, 4, 5];
 
     onMounted(() => {
-      const totalWidth = container.value.scrollWidth;
-      const viewWidth = window.innerWidth;
-      const scrollDistance = totalWidth - viewWidth;
+      if (window.innerWidth > 600) {
+        const sections = gsap.utils.toArray('.portfolio__box');
 
-      gsap.to(container.value, {
-        x: -scrollDistance,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: container.value,
-          start: 'top top',
-          end: () => `+=${scrollDistance}`,
-          scrub: true,
-          pin: true,
-        },
-      });
+        gsap.to(sections, {
+          xPercent: -100 * (sections.length - 1),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.portfolio',
+            pin: true,
+            scrub: 1,
+            snap: 1 / (sections.length - 1),
+            end: () => "+=" + document.querySelector(".portfolio").offsetWidth
+          }
+        });
+
+        // const totalWidth = container.value.scrollWidth;
+        // const viewWidth = window.innerWidth;
+        // const scrollDistance = totalWidth - viewWidth;
+
+        // gsap.to(container.value, {
+        //   x: -scrollDistance,
+        //   ease: 'none',
+        //   scrollTrigger: {
+        //     trigger: container.value,
+        //     start: 'top top',
+        //     end: () => `+=${scrollDistance}`,
+        //     scrub: true,
+        //     pin: true,
+        //   },
+        // });
+      }
     });
 
     return {
       imgRoute,
       container,
-      boxes,
     };
   },
-  methods:{
-    goToLink(link){
-      window.open(link) 
-    }
-  }
+  methods: {
+    goToLink(link) {
+      window.open(link);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
