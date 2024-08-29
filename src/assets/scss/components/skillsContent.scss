@@ -22,6 +22,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 4px;
     margin: 16px 0;
     padding: 10px;
     border-radius: 5px;
@@ -44,12 +45,22 @@
   overflow: hidden;
   &__bar {
     height: 100%;
-    background: var(--subBg200);
+    background: var(--txt100);
+  }
+  &__num {
+    font-size: 0.8em;
   }
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width: 600px) {
   .skills__wrap {
     padding: 32px;
+  }
+  .skills__list {
+    padding: 16px 12px;
+  }
+  .skills__name,
+  .progress__num {
+    font-size: 16px;
   }
 }

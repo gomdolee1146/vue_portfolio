@@ -9,8 +9,9 @@ import { skills } from '@/data/index';
       <li v-for="skill in skills" :key="skill.name">
         <span class="skills__name">{{ skill.name }}</span>
         <div class="progress" ref="progressBars">
-          <div class="progress__bar"></div>
+          <div class="progress__bar" :style="{'width': `${skill.level}%`}"></div>
         </div>
+        <span class="progress__num">{{ skill.level }}</span>
       </li>
     </ul>
   </div>
@@ -25,35 +26,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'SkillsContent',
-  setup() {
-    const skillsSection = ref(null);
-    const progressBars = ref([]);
+  // setup() {
+  //   const skillsSection = ref(null);
+  //   const progressBars = ref([]);
 
-    onMounted(() => {
-      gsap.utils.toArray(progressBars.value).forEach((bar, index) => {
-        gsap.fromTo(
-          bar.querySelector('.progress__bar'),
-          { width: 0 },
-          {
-            width: skills[index].level + '%',
-            duration: 2,
-            ease: 'power1.inOut',
-            scrollTrigger: {
-              trigger: skillsSection.value,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      });
-    });
+  //   onMounted(() => {
+  //     gsap.utils.toArray(progressBars.value).forEach((bar, index) => {
+  //       console.log(skills[index].level);
+  //       gsap.fromTo(
+  //         bar.querySelector('.progress__bar'),
+  //         { width: 0 },
+  //         {
+  //           width: skills[index].level + '%',
+  //           duration: 2,
+  //           ease: 'power1.inOut',
+  //           scrollTrigger: {
+  //             trigger: skillsSection.value,
+  //             start: 'top 80%',
+  //             toggleActions: 'play none none none',
+  //           },
+  //         }
+  //       );
+  //     });
+  //   });
 
-    return {
-      skills,
-      progressBars,
-      skillsSection,
-    };
-  },
+  //   return {
+  //     skills,
+  //     progressBars,
+  //     skillsSection,
+  //   };
+  // },
 };
 </script>
 <style lang="scss" scoped>

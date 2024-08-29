@@ -14,7 +14,7 @@
       <career-content />
     </section>
     <section class="section-profile" id="profile" ref="profileSection">
-      <profile-content />
+      <!-- <profile-content /> -->
     </section>
     <nav-dots :activeSection="activeSection" />
   </div>

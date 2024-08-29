@@ -69,4 +69,9 @@ export default {
     box-sizing: border-box;
   }
 }
+@media screen and (max-width: 600px) {
+  .nav__wrap-dots {
+    display: none;
+  }
+}
 </style>
