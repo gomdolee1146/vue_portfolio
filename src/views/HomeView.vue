@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+    <intro-box @checkLoading="checkLoading" />
+
     <nav-header :activeSection="activeSection" />
     <section class="section-home" id="home" ref="homeSection">
-      <home-content />
+      <home-content :isEndLoading="isEndLoading" />
     </section>
     <section class="section-skills" id="skills" ref="skillsSection">
       <skills-content />
@@ -26,6 +28,7 @@ import { onMounted, ref } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import IntroBox from '@/components/box/introBox.vue';
 import NavHeader from '@/components/nav/navHeader.vue';
 import NavDots from '@/components/nav/navDots.vue';
 import GoToTop from '@/components/nav/goToTop.vue';
@@ -39,6 +42,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   components: {
+    IntroBox,
     NavHeader,
     NavDots,
     GoToTop,
@@ -49,6 +53,16 @@ export default {
     ProfileContent,
   },
   name: 'HomeView',
+  data() {
+    return {
+      isEndLoading: false,
+    };
+  },
+  methods:{
+    checkLoading(isEndLoading) {
+      this.isEndLoading = isEndLoading; 
+    },
+  },
   setup() {
     const homeSection = ref(null);
     const skillsSection = ref(null);

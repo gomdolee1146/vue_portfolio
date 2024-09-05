@@ -5,7 +5,7 @@
 }
 
 .skills__title {
-  margin-bottom: 20px;
+  margin-bottom: 32px;
   font-size: 1.6em;
   font-weight: 700;
   color: var(--txt200);
@@ -22,22 +22,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 4px;
     margin: 16px 0;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 16px;
     background: #f8f8f8;
     color: var(--txt400);
   }
 }
 .skills__name {
+  flex: 0 0 160px;
+  width: 160px;
   font-size: 1em;
   font-weight: 500;
   color: var(--txt300);
 }
 
 .progress {
-  width: 70%;
+  flex: 1 1 auto;
   height: 10px;
   margin-left: 10px;
   background: #dadada;
@@ -48,7 +51,10 @@
     background: var(--txt100);
   }
   &__num {
+    flex: 0 0 80px;
+    width: 80px;
     font-size: 0.8em;
+    text-align: center;
   }
 }
 
@@ -58,9 +64,26 @@
   }
   .skills__list {
     padding: 16px 12px;
+    li {
+      padding: 16px;
+    }
   }
   .skills__name,
   .progress__num {
     font-size: 16px;
+  }
+  .skills__name {
+    display: block;
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .progress {
+    margin-left: 0;
+    &__num {
+      flex: 0 0 48px;
+      width: 48px;
+      text-align: right;
+    }
   }
 }

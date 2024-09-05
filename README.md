@@ -1,29 +1,16 @@
-# vue-project
+## MY Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+### 프로젝트 소개
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- GSAP 라이브러리를 사용한 스크롤 이벤트를 작업했습니다.
+- 저에 대한 소개와 포트폴리오를 담았습니다. 
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+### 프로젝트 설명
 
-```sh
-npm install
-```
+- 작업기간: 약 1개월
+- 사용 언어: vue3, scss
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+![프로젝트 썸네일](./src/assets/img/port06.png)

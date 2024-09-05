@@ -26,36 +26,35 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'SkillsContent',
-  // setup() {
-  //   const skillsSection = ref(null);
-  //   const progressBars = ref([]);
+  setup() {
+    const skillsSection = ref(null);
+    const progressBars = ref([]);
 
-  //   onMounted(() => {
-  //     gsap.utils.toArray(progressBars.value).forEach((bar, index) => {
-  //       console.log(skills[index].level);
-  //       gsap.fromTo(
-  //         bar.querySelector('.progress__bar'),
-  //         { width: 0 },
-  //         {
-  //           width: skills[index].level + '%',
-  //           duration: 2,
-  //           ease: 'power1.inOut',
-  //           scrollTrigger: {
-  //             trigger: skillsSection.value,
-  //             start: 'top 80%',
-  //             toggleActions: 'play none none none',
-  //           },
-  //         }
-  //       );
-  //     });
-  //   });
+    onMounted(() => {
+      gsap.utils.toArray(progressBars.value).forEach((bar, index) => {
+        gsap.fromTo(
+          bar.querySelector('.progress__bar'),
+          { width: 0 },
+          {
+            width: skills[index].level + '%',
+            duration: 2,
+            ease: 'power1.inOut',
+            scrollTrigger: {
+              trigger: skillsSection.value,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+    });
 
-  //   return {
-  //     skills,
-  //     progressBars,
-  //     skillsSection,
-  //   };
-  // },
+    return {
+      skills,
+      progressBars,
+      skillsSection,
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>

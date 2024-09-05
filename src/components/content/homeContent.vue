@@ -2,7 +2,7 @@
   <div class="home__wrap">
     <div class="home__content">
       <span>HELLO :)</span> <br />
-      <typing-text :text="'This is My Portfolio!'" />
+      <typing-text :text="'This is My Portfolio!'" :isStart="isEndLoading" />
     </div>
     <div class="home__bg" ref="stars">
       <div v-for="n in 5" :key="'star' + n" class="shining-star"></div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, isReadonly } from 'vue';
 import { gsap } from 'gsap';
 
 import typingText from '@/components/box/typingText.vue';
@@ -21,6 +21,9 @@ import typingText from '@/components/box/typingText.vue';
 export default {
   name: 'homeContent',
   components: { typingText },
+  props: {
+    isEndLoading: { type: Boolean, default: false },
+  },
   setup() {
     const stars = ref(null);
 
@@ -89,6 +92,7 @@ export default {
           }
         );
       });
+    
     });
 
     return {

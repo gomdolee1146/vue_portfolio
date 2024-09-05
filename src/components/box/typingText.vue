@@ -10,12 +10,13 @@ export default {
   name: 'typingText',
   props: {
     text: { type: String, default: '타이핑 테스트' },
+    isStart: { type: Boolean, default: false },
   },
   data() {
     return {
       displayedText: '',
       index: 0,
-      typingSpeed: 100,
+      typingSpeed: 80,
     };
   },
   methods: {
@@ -27,8 +28,14 @@ export default {
       }
     },
   },
-  mounted() {
-    this.typeContent();
+  watch: {
+    isStart: {
+      handler() {
+        if (this.isStart === true) {
+          this.typeContent();
+        }
+      },
+    },
   },
 };
 </script>

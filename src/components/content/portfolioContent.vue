@@ -8,7 +8,7 @@
         </div>
         <div class="portfolio__content">
           <h2>- {{ box.title }}-</h2>
-          <p>{{ box.desc }}</p>
+          <p class="portfolio__desc" v-html="escapeToEnter(box.desc)"></p>
           <p>
             사용 언어:
             <span
@@ -23,7 +23,7 @@
           <p>작업기간 : {{ box.period }}</p>
           <div class="portfolio__content_box">
             <button class="portfolio__button" v-if="box.code" @click="goToLink(box.code)">
-              GITHUB
+              Readme
             </button>
             <button class="portfolio__button" @click="goToLink(box.view)">DEMO</button>
           </div>
@@ -58,6 +58,9 @@ export default {
     onMounted(() => {
       if (window.innerWidth > 600) {
         const sections = gsap.utils.toArray('.portfolio__box');
+        const container = document.querySelector('.portfolio');
+        const containerWidth = container.scrollWidth;
+        const windowWidth = window.innerWidth;
 
         gsap.to(sections, {
           xPercent: -100 * (sections.length - 1),
@@ -66,26 +69,15 @@ export default {
             trigger: '.portfolio',
             pin: true,
             scrub: 1,
-            snap: 1 / (sections.length - 1),
-            end: () => "+=" + document.querySelector(".portfolio").offsetWidth
-          }
+            snap: {
+              snapTo: 1 / (sections.length - 1),
+              duration: { min: 0.2, max: 0.3 },
+              ease: 'power1.inOut',
+            },
+            end: () =>
+              '+=' + (containerWidth - windowWidth + windowWidth / sections.length),
+          },
         });
-
-        // const totalWidth = container.value.scrollWidth;
-        // const viewWidth = window.innerWidth;
-        // const scrollDistance = totalWidth - viewWidth;
-
-        // gsap.to(container.value, {
-        //   x: -scrollDistance,
-        //   ease: 'none',
-        //   scrollTrigger: {
-        //     trigger: container.value,
-        //     start: 'top top',
-        //     end: () => `+=${scrollDistance}`,
-        //     scrub: true,
-        //     pin: true,
-        //   },
-        // });
       }
     });
 
@@ -97,6 +89,10 @@ export default {
   methods: {
     goToLink(link) {
       window.open(link);
+    },
+    escapeToEnter(str) {
+      str = str.replaceAll('\n', '<br />');
+      return str;
     },
   },
 };
