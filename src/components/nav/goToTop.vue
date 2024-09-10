@@ -14,7 +14,7 @@ export default {
 
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      isVisible.value = scrollTop < previousScroll;
+      isVisible.value = scrollTop < previousScroll || window.scrollY !== 0;
       previousScroll = scrollTop;
     };
 

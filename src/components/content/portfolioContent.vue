@@ -58,9 +58,6 @@ export default {
     onMounted(() => {
       if (window.innerWidth > 600) {
         const sections = gsap.utils.toArray('.portfolio__box');
-        const container = document.querySelector('.portfolio');
-        const containerWidth = container.scrollWidth;
-        const windowWidth = window.innerWidth;
 
         gsap.to(sections, {
           xPercent: -100 * (sections.length - 1),
@@ -69,14 +66,9 @@ export default {
             trigger: '.portfolio',
             pin: true,
             scrub: 1,
-            snap: {
-              snapTo: 1 / (sections.length - 1),
-              duration: { min: 0.2, max: 0.3 },
-              ease: 'power1.inOut',
-            },
-            end: () =>
-              '+=' + (containerWidth - windowWidth + windowWidth / sections.length),
-          },
+            snap: 1 / (sections.length - 1),
+            end: () => "+=" + document.querySelector(".portfolio").offsetWidth
+          }
         });
       }
     });

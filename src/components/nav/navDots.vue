@@ -36,6 +36,7 @@ export default {
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+  z-index: 1000;
 }
 
 .nav__dots {
@@ -45,7 +46,7 @@ export default {
   height: 16px;
   border-radius: 50%;
   background: #d4ccdf;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 

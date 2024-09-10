@@ -3,15 +3,16 @@ export const navigateContent = ['home', 'skills', 'portfolio', 'career', 'profil
 export const skills = [
   { name: 'HTML', level: 95 },
   { name: 'CSS', level: 95 },
-  { name: 'Javascript', level: 70 },
+  { name: 'Javascript', level: 80 },
+  { name: 'GSAP', level: 70 },
   { name: 'Vue.js', level: 70 },
-  { name: 'scss', level: 85 },
+  { name: 'scss', level: 90 },
 ];
 
 export const portContent = [
   {
     num: '01',
-    title: '댕-냥 커뮤니티 SSSTORY',
+    title: '댕-냥 커뮤니티 Ssstory',
     desc: `게시판과 간단한 게임으로 이루어진 커뮤니티 사이트를 만들고자 하였습니다.\n 로그인, 회원가입, 마이페이지 화면을 만들고 회원정보 수정 기능이 들어있습니다. \n자바스크립트를 이용한 틱택토, MBTI, 카드맞추기 게임을 댕냥 컨텐츠와 연결지어 추가했습니다. `,
     thumb: 'port01.png',
     code: 'https://github.com/gomdolee1146/story.git',
@@ -22,7 +23,7 @@ export const portContent = [
   {
     num: '02',
     title: '날씨 어플',
-    desc: `OpenWeatherAPI를 활용하여 16개 도시의 오늘 날씨, 이번주 날씨를 불러왔습니다. \nAPI 문서를 분석해서 화면을 그리는 작업을 할 수 있었습니다. \nLodash 라이브러리를 사용해 필요한 부분을 불러온 데이터를 편집하여 사용할 수 있도록 했습니다.`,
+    desc: `OpenWeatherAPI를 활용하여 16개 도시의 오늘 날씨, 이번주 날씨를 불러왔습니다. \n OpenWeatherAPI에서 제공하는 문서를 보고 필요한 데이터를 가져왔습니다. \n 가져온 데이터를 기반으로 화면을 그렸습니다.  \nLodash 라이브러리를 사용해 필요한 부분을 불러온 데이터를 편집하여 사용할 수 있도록 했습니다.`,
     thumb: 'port02.png',
     code: 'https://github.com/gomdolee1146/vue_weather.git',
     view: 'https://melodic-beijinho-f7d240.netlify.app',
@@ -31,7 +32,7 @@ export const portContent = [
   },
   {
     num: '03',
-    title: 'EMOJI MAKER',
+    title: 'Emoji Maker',
     desc: `맘에 드는 에셋을 선택해 이모지를 만들 수 있습니다. \n스토어를 이용하여 로컬스토리지에 완성된 이모지를 저장하는 방식으로\n프리셋 기능을 만들었습니다.`,
     thumb: 'port03.png',
     code: 'https://github.com/gomdolee1146/emoji_factory/tree/master',
@@ -56,7 +57,7 @@ export const portContent = [
     thumb: 'port05.png',
     code: 'https://teal-bubblegum-fc2aa2.netlify.app/readme.html',
     view: 'https://teal-bubblegum-fc2aa2.netlify.app',
-    period: '작업 기간 : 약 1주일',
+    period: '약 1주일',
     skills: ['html', 'css', 'javascript'],
   },
   {
@@ -65,8 +66,8 @@ export const portContent = [
     desc: `저에 대한 소개와 작업물들을 담아내기 위한 화면을 만들었습니다. \ngsap을 이용한 인터랙션이 담겨져있습니다.`,
     thumb: 'port06.png',
     code: 'https://github.com/gomdolee1146/vue_portfolio',
-    view: '',
-    period: '포트폴리오',
+    view: 'https://verdant-biscotti-64b8ff.netlify.app/',
+    period: '약 1개월',
     skills: ['vue', 'scss'],
   },
 ];

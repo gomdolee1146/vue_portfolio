@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0 0;
+    padding: 80px 0 0;
     width: 100%;
     font-size: 40px;
     font-weight: 700;
@@ -18,14 +18,15 @@
     position: relative;
     width: 300vw;
     height: 100vh;
-    padding-top: 60px;
     overflow: hidden;
     box-sizing: border-box;
   }
   &__box {
+    flex: 0 0 60vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 60vw;
     position: relative;
     padding: 60px;
     font-size: 1.2rem;
@@ -43,6 +44,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      background: #eeebf2;
       object-fit: contain;
       aspect-ratio: 1/1;
     }
@@ -150,6 +152,9 @@
     width: 100vw;
     height: inherit;
   }
+  .portfolio__title {
+    margin-bottom: 24px;
+  }
   .portfolio__box {
     flex-direction: column;
     width: 100%;
@@ -161,7 +166,7 @@
 
   .portfolio__content {
     position: static;
-    padding-bottom: 36px;
+    padding: 0 12px 36px;
     background: transparent;
     color: var(--txt200);
     opacity: 1;
@@ -171,6 +176,9 @@
     h2 {
       font-size: 18px;
       color: var(--txt100);
+    }
+    p {
+      font-size: 15px;
     }
   }
   .portfolio__badge {

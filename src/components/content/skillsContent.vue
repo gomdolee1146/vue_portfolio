@@ -1,7 +1,3 @@
-<script setup>
-import { skills } from '@/data/index';
-</script>
-
 <template>
   <div class="skills__wrap" ref="skillsSection">
     <h2 class="skills__title">My Skills</h2>
@@ -9,7 +5,7 @@ import { skills } from '@/data/index';
       <li v-for="skill in skills" :key="skill.name">
         <span class="skills__name">{{ skill.name }}</span>
         <div class="progress" ref="progressBars">
-          <div class="progress__bar" :style="{'width': `${skill.level}%`}"></div>
+          <div class="progress__bar" :style="{ width: `${skill.level}%` }"></div>
         </div>
         <span class="progress__num">{{ skill.level }}</span>
       </li>
@@ -21,6 +17,7 @@ import { skills } from '@/data/index';
 import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { skills } from '@/data/index';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,24 +28,28 @@ export default {
     const progressBars = ref([]);
 
     onMounted(() => {
-      gsap.utils.toArray(progressBars.value).forEach((bar, index) => {
-        gsap.fromTo(
-          bar.querySelector('.progress__bar'),
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: skillsSection.value,
+          start: 'top 50%',
+          toggleActions: 'play none none none',
+        },
+      });
+
+      progressBars.value.forEach((bar, index) => {
+        tl.fromTo(
+          bar.querySelector('.progress'),
           { width: 0 },
           {
             width: skills[index].level + '%',
-            duration: 2,
+            duration: 1,
             ease: 'power1.inOut',
-            scrollTrigger: {
-              trigger: skillsSection.value,
-              start: 'top 80%',
-              toggleActions: 'play none none none',
-            },
+            delay: index * 0.2,
           }
         );
       });
     });
-
+    
     return {
       skills,
       progressBars,

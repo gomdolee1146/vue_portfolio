@@ -20,6 +20,7 @@
   background-color: var(--subBg100);
 }
 .section-career {
+  height: inherit;
   background-color: var(--subBg200);
   color: var(--black200);
 }
@@ -28,4 +29,10 @@
   height: auto;
   background-color: var(--subBg100);
   color: var(--black300);
+}
+
+@media screen and (max-width: 600px) {
+  .section-skills {
+    height: inherit;
+  }
 }

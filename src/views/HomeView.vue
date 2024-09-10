@@ -1,25 +1,28 @@
 <template>
   <div id="app">
     <intro-box @checkLoading="checkLoading" />
-
     <nav-header :activeSection="activeSection" />
-    <section class="section-home" id="home" ref="homeSection">
+    <section class="section-scroll section-home" id="home" ref="homeSection">
       <home-content :isEndLoading="isEndLoading" />
     </section>
-    <section class="section-skills" id="skills" ref="skillsSection">
+    <section class="section-scroll section-skills" id="skills" ref="skillsSection">
       <skills-content />
     </section>
-    <section class="section-portfolio" id="portfolio" ref="portfolioSection">
+    <section
+      class="section-scroll section-portfolio"
+      id="portfolio"
+      ref="portfolioSection"
+    >
       <portfolio-content />
     </section>
-    <section class="section-career" id="career" ref="careerSection">
+    <section class="section-scroll section-career" id="career" ref="careerSection">
       <career-content />
     </section>
-    <section class="section-profile" id="profile" ref="profileSection">
+    <section class="section-scroll section-profile" id="profile" ref="profileSection">
       <!-- <profile-content /> -->
     </section>
-    <nav-dots :activeSection="activeSection" />
   </div>
+  <nav-dots :activeSection="activeSection" />
   <go-to-top />
 </template>
 
@@ -58,9 +61,9 @@ export default {
       isEndLoading: false,
     };
   },
-  methods:{
+  methods: {
     checkLoading(isEndLoading) {
-      this.isEndLoading = isEndLoading; 
+      this.isEndLoading = isEndLoading;
     },
   },
   setup() {
@@ -80,6 +83,7 @@ export default {
         { id: 'profile', ref: profileSection },
       ];
 
+      // 활성화된 섹션 따라서 네비게이션 active로 보여주기
       const updateActiveSection = () => {
         const scrollPosition = window.scrollY + window.innerHeight / 2;
         sections.forEach((section) => {
